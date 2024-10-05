@@ -3,10 +3,10 @@ const ctx = canvas.getContext("2d");
 let isPlaying = false;
 
 const characterImg = new Image();
-characterImg.src = "../IMAGES/character1.gif";
+characterImg.src = "./imágenes/snorlax.gif";
 
 const backgroundImg = new Image();
-backgroundImg.src = "../IMAGES/fondogame1.png";
+backgroundImg.src = "./imágenes/fondojuego1.jpg";
 
 const character = {
   x: 50,
@@ -37,9 +37,7 @@ function gameLoop() {
   if (!isPlaying) return;
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
   ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
-
   ctx.drawImage(
     characterImg,
     character.x,
@@ -47,7 +45,6 @@ function gameLoop() {
     character.width,
     character.height
   );
-
   moveCharacter();
 
   requestAnimationFrame(gameLoop);

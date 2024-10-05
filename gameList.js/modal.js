@@ -96,7 +96,7 @@ function showDetails(gameId) {
     if (gameId === "adventure_game1" || gameId === "adventure_game2") {
       gameDemoButton.style.display = "inline-block";
       gameDemoButton.onclick = () => {
-        window.location.href = `./${gameId}_demo.html`;
+        window.location.href = "jueguito1.html";
       };
     } else {
       gameDemoButton.style.display = "none";
