@@ -3,6 +3,9 @@ body {
   overflow: hidden;
   background-color: #f0f0f0;
   font-family: Arial, sans-serif;
+  background-image: url("../imágenes/fondopag.jpg");
+  background-size: cover;
+  backdrop-filter: blur(5px);
 }
 
 .container {
