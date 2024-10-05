@@ -1,71 +1,88 @@
-const player = document.getElementById("player");
-const obstacle = document.getElementById("obstacle");
-const gameArea = document.getElementById("game");
-const scoreDisplay = document.getElementById("score");
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+let isPlaying = false;
 
-let score = 0;
-let isGameOver = false;
-let obstacleSpeed = 5;
+const characterImg = new Image();
+characterImg.src = "../IMAGES/character1.gif";
+
+const backgroundImg = new Image();
+backgroundImg.src = "../IMAGES/fondogame1.png";
+
+const character = {
+  x: 50,
+  y: 300,
+  width: 50,
+  height: 50,
+  dx: 0,
+  dy: 0,
+  speed: 5,
+};
+
+const keys = {
+  right: false,
+  left: false,
+  up: false,
+  down: false,
+};
+
+document.getElementById("start-btn").addEventListener("click", startGame);
 
 function startGame() {
-  obstacle.style.left = Math.random() * (gameArea.clientWidth - 40) + "px";
-  obstacle.style.top = "-40px";
-  moveObstacle();
+  document.getElementById("start-btn").style.display = "none";
+  isPlaying = true;
+  gameLoop();
 }
 
-function moveObstacle() {
-  if (isGameOver) return;
+function gameLoop() {
+  if (!isPlaying) return;
 
-  let obstaclePosition = parseInt(obstacle.style.top);
-  obstaclePosition += obstacleSpeed;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  if (obstaclePosition > gameArea.clientHeight) {
-    score++;
-    scoreDisplay.textContent = `Puntuación: ${score}`;
-    obstaclePosition = -40;
-    obstacle.style.left = Math.random() * (gameArea.clientWidth - 40) + "px";
-  }
+  ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
 
-  obstacle.style.top = obstaclePosition + "px";
-  checkCollision();
-  requestAnimationFrame(moveObstacle);
+  ctx.drawImage(
+    characterImg,
+    character.x,
+    character.y,
+    character.width,
+    character.height
+  );
+
+  moveCharacter();
+
+  requestAnimationFrame(gameLoop);
 }
 
-function checkCollision() {
-  const playerRect = player.getBoundingClientRect();
-  const obstacleRect = obstacle.getBoundingClientRect();
+function moveCharacter() {
+  if (keys.right) character.dx = character.speed;
+  else if (keys.left) character.dx = -character.speed;
+  else character.dx = 0;
 
-  if (
-    playerRect.x < obstacleRect.x + obstacleRect.width &&
-    playerRect.x + playerRect.width > obstacleRect.x &&
-    playerRect.y < obstacleRect.y + obstacleRect.height &&
-    playerRect.y + playerRect.height > obstacleRect.y
-  ) {
-    gameOver();
-  }
+  if (keys.up) character.dy = -character.speed;
+  else if (keys.down) character.dy = character.speed;
+  else character.dy = 0;
+
+  character.x += character.dx;
+  character.y += character.dy;
+
+  if (character.x < 0) character.x = 0;
+  if (character.x + character.width > canvas.width)
+    character.x = canvas.width - character.width;
+  if (character.y < 0) character.y = 0;
+  if (character.y + character.height > canvas.height)
+    character.y = canvas.height - character.height;
 }
 
-function gameOver() {
-  isGameOver = true;
-  alert(`¡Juego terminado! Tu puntuación final es ${score}`);
-}
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowLeft") {
-    movePlayer(-10);
-  } else if (event.key === "ArrowRight") {
-    movePlayer(10);
-  }
+window.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") keys.right = true;
+  if (e.key === "ArrowLeft") keys.left = true;
+  if (e.key === "ArrowUp") keys.up = true;
+  if (e.key === "ArrowDown") keys.down = true;
 });
 
-function movePlayer(direction) {
-  const playerPosition = parseInt(player.style.left);
-  if (
-    playerPosition + direction >= 0 &&
-    playerPosition + direction <= gameArea.clientWidth - 40
-  ) {
-    player.style.left = playerPosition + direction + "px";
-  }
-}
-
-startGame();
+window.addEventListener("keyup", (e) => {
+  if (e.key === "ArrowRight") keys.right = false;
+  if (e.key === "ArrowLeft") keys.left = false;
+  if (e.key === "ArrowUp") keys.up = false;
+  if (e.key === "ArrowDown") keys.down = false;
+});
