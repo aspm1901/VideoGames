@@ -1,0 +1,175 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #444;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #333;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  padding: 5px;
+  background-color: #555;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #f4f4f4;
+}
+
+#categories button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #666;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#categories button:hover {
+  background-color: #888;
+}
+
+#game-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.game-card {
+  background-color: #222;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.game-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.game-card h3 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.details p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.game-card .favorite {
+  color: gold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #333;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  color: white;
+}
+
+.modal-content img {
+  width: 80%;
+  border-radius: 10px;
+}
+
+.modal-content h3 {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.modal-content p {
+  margin: 15px 0;
+  color: #ccc;
+}
+
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #bbb;
+}
+
+.price-discount-box {
+  background-color: #444;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.price-discount-box p {
+  margin: 5px 0;
+}
+
+#game-demo-btn {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#game-demo-btn:hover {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
+
+#game-demo-btn:active {
+  transform: scale(0.98);
+}

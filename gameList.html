@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GamePlayZ</title>
+    <link rel="stylesheet" href="./gamelist.css/gamelist.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-logo">
+        <img src="./imágenes/logo.jpg" alt="GameVerse Logo" class="logo" />
+        <h1>GamePlayZ</h1>
+      </div>
+      <div id="categories">
+        <button onclick="filterGames('all')">All</button>
+        <button onclick="filterGames('free')">Free to Play</button>
+        <button onclick="filterGames('action')">Action</button>
+        <button onclick="filterGames('sport')">Sport</button>
+        <button onclick="filterGames('adventure')">Adventure</button>
+      </div>
+    </header>
+
+    <section id="game-list">
+      <div
+        class="game-card"
+        data-category="free"
+        onclick="showDetails('free_game1')"
+      >
+        <img src="./imágenes/free2play1.jpg" alt="Free Game 1" />
+        <div class="price-discount-box">
+          <h3>The First Descendant</h3>
+          <p>Free to Play</p>
+          <span class="favorite" onclick="toggleFavorite(event, this)">☆</span>
+        </div>
+      </div>
+      <div
+        class="game-card"
+        data-category="free"
+        onclick="showDetails('free_game2')"
+      >
+        <img src="./imágenes/free2play2.jpg" alt="Free Game 2" />
+        <div class="price-discount-box">
+          <h3>The Sims 4</h3>
+          <p>Free to Play</p>
+          <span class="favorite" onclick="toggleFavorite(event, this)">☆</span>
+        </div>
+      </div>
+      <div
+        class="game-card"
+        data-category="free"
+        onclick="showDetails('free_game3')"
+      >
+        <img src="./imágenes/free2play3.jpg" alt="Free Game 3" />
+        <div class="price-discount-box">
+          <h3>Dota2</h3>
+          <p>Free to Play</p>
+          <span class="favorite" onclick="toggleFavorite(event, this)">☆</span>
+        </div>
+      </div>
+
+      <div
+        class="game-card"
+        data-category="action"
+        onclick="showDetails('action_game1')"
+      >
+        <img src="./imágenes/acción1.jpg" alt="Action Game 1" />
+        <div class="price-discount-box">
+          <h3>PUBG Battlegrounds</h3>
+          <p>15%Off</p>
+          <p>$20.50</p>
+          <span class="favorite" onclick="toggleFavorite(event, this)">☆</span>
+        </div>
+      </div>
+      <div
+        class="game-card"
+        data-category="action"
+        onclick="showDetails('action_game2')"
+      >
+        <img src="./imágenes/acción2.jpg" alt="Action Game 2" />
+        <div class="price-discount-box">
+          <h3>Call Of Duty: Black Ops 6</h3>
+          <p>25%Off</p>
+          <p>$59.90</p>
+          <span class="favorite" onclick="toggleFavorite(event, this)">☆</span>
+        </div>
+      </div>
+      <div
+        class="game-card"
+        data-category="action"
+        onclick="showDetails('action_game3')"
+      >
+        <img src="./imágenes/acción3.jpg" alt="Action Game 3" />
+        <div class="price-discount-box">
+          <h3>Rust</h3>
+          <p>22%Off</p>
+          <p>$25.50</p>
+          <span class="favorite" onclick="toggleFavorite(event, this)">☆</span>
+        </div>
+      </div>
+
+      <div
+        class="game-card"
+        data-category="sport"
+        onclick="showDetails('sport_game1')"
+      >
+        <img src="./imágenes/sport1.jpg" alt="Sport Game 1" />
+        <div class="price-discount-box">
+          <h3>FC 25</h3>
+          <p>5%Off</p>
+          <p>$55.90</p>
+          <span class="favorite" onclick="toggleFavorite(event, this)">☆</span>
+        </div>
+      </div>
+      <div
+        class="game-card"
+        data-category="sport"
+        onclick="showDetails('sport_game2')"
+      >
+        <img src="./imágenes/sport2.jpg" alt="Sport Game 2" />
+        <div class="price-discount-box">
+          <h3>Football Manager 25</h3>
+          <p>40%Off</p>
+          <p>$22.95</p>
+          <span class="favorite" onclick="toggleFavorite(event, this)">☆</span>
+        </div>
+      </div>
+      <div
+        class="game-card"
+        data-category="sport"
+        onclick="showDetails('sport_game3')"
+      >
+        <img src="./imágenes/sport3.jpg" alt="Sport Game 3" />
+        <div class="price-discount-box">
+          <h3>F1 24</h3>
+          <p>50%Off</p>
+          <p>$33.86</p>
+          <span class="favorite" onclick="toggleFavorite(event, this)">☆</span>
+        </div>
+      </div>
+      <div
+        class="game-card"
+        data-category="adventure"
+        onclick="showDetails('adventure_game1')"
+      >
+        <img src="./imágenes/aventura1.jpg" alt="Adventure Game 1" />
+        <div class="price-discount-box">
+          <h3>Temtem</h3>
+          <p>44%Off</p>
+          <p>15.99</p>
+          <span class="favorite" onclick="toggleFavorite(event, this)">☆</span>
+        </div>
+      </div>
+      <div
+        class="game-card"
+        data-category="adventure"
+        onclick="showDetails('adventure_game2')"
+      >
+        <img src="./imágenes/aventura2.jpg" alt="Adventure Game 2" />
+        <div class="price-discount-box">
+          <h3>Dead Cells</h3>
+          <p>30%Off</p>
+          <p>$10.95</p>
+          <span class="favorite" onclick="toggleFavorite(event, this)">☆</span>
+        </div>
+      </div>
+      <div
+        class="game-card"
+        data-category="adventure"
+        onclick="showDetails('adventure_game3')"
+      >
+        <img src="./imágenes/aventura3.jpg" alt="Adventure Game 3" />
+        <div class="price-discount-box">
+          <h3>South Park: Snow Day!</h3>
+          <p>35%Off</p>
+          <p>$21.90</p>
+          <span class="favorite" onclick="toggleFavorite(event, this)">☆</span>
+        </div>
+      </div>
+    </section>
+
+    <div id="game-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="game-title"></h3>
+        <img id="game-image" src="" alt="" />
+        <p id="game-description"></p>
+        <p id="game-price"></p>
+      </div>
+    </div>
+
+    <script src="./gameList.js/favorite.js"></script>
+    <script src="./gameList.js/categoryFilter.js"></script>
+    <script src="./gameList.js/modal.js"></script>
+  </body>
+</html>
